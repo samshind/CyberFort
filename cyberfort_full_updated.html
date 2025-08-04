@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberFort - Advanced Cybersecurity Solutions</title>
+    <meta name="description" content="CyberFort provides cutting-edge cybersecurity solutions to protect your digital assets. Expert threat detection, incident response, and security consulting services.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0b1f;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom CSS Classes */
+        .cyber-gradient {
+            background: linear-gradient(135deg, #6c4cf2 0%, #0099cc 50%, #006699 100%);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .neumorphism {
+            background: #1a1a1a;
+            box-shadow: 8px 8px 16px #0b0b1f, -8px -8px 16px #2a2a2a;
+        }
+
+        .cyber-border {
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, #6c4cf2, #b07fff) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+
+        .cyber-button {
+            background: linear-gradient(45deg, #6c4cf2, #b07fff);
+            border: none;
+            color: #0b0b1f;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .floating-shield {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #6c4cf2;
+            white-space: nowrap;
+            animation: typewriter 3s steps(40) 1s 1 normal both, blink 1s infinite;
+        }
+
+        .cyber-grid-bg {
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #6c4cf2, 0 0 10px #6c4cf2, 0 0 15px #6c4cf2; }
+            100% { box-shadow: 0 0 10px #6c4cf2, 0 0 20px #6c4cf2, 0 0 30px #6c4cf2; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: #6c4cf2; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #6c4cf2;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6c4cf2;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #6c4cf2, #b07fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #c5c5c5;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #6c4cf2;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-card {
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #6c4cf2;
+            margin-bottom: 0.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            color: #6c4cf2;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            color: #6c4cf2;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-features li {
+            padding: 0.25rem 0;
+            color: #c5c5c5;
+        }
+
+        .service-features li::before {
+            content: '▶';
+            color: #6c4cf2;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #6c4cf2;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6c4cf2;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            color: #6c4cf2;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0b0b1f;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #6c4cf2;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #c5c5c5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #6c4cf2;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Floating Button */
+        .floating-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-option:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-button {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0b0b1f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-top: 3px solid #6c4cf2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2 style="color: #6c4cf2; font-family: 'Inter', sans-serif;">CyberFort</h2>
+            <p style="color: #c5c5c5;">Initializing Security Systems...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">CyberFort</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero cyber-grid-bg">
+        <div class="hero-content">
+            <h1 class="typewriter" id="hero-title">Secure Your Digital Future</h1>
+            <p>Advanced cybersecurity solutions to protect your business from evolving threats. Expert threat detection, incident response, and comprehensive security consulting.</p>
+            <a href="#services" class="cta-button cyber-button">
+                Explore Services
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <i data-lucide="chevron-down" style="color: #6c4cf2; width: 30px; height: 30px;"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            
+            <div class="about-grid">
+                <div class="about-card glass-effect">
+                    <h3 style="color: #6c4cf2; margin-bottom: 1rem;">Our Mission</h3>
+                    <p>CyberFort is a leading cybersecurity company dedicated to protecting businesses and organizations from the ever-evolving landscape of digital threats. We combine cutting-edge technology with expert knowledge to provide comprehensive security solutions that keep your digital assets safe.</p>
+                </div>
+                <div class="about-card glass-effect">
+                    <h3 style="color: #6c4cf2; margin-bottom: 1rem;">Our Vision</h3>
+                    <p>To create a secure digital world where businesses can thrive without fear of cyber threats. We envision a future where advanced security measures are accessible to organizations of all sizes, ensuring protection for everyone in the digital ecosystem.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card neumorphism">
+                    <div class="stat-number">500+</div>
+                    <p>Threats Blocked</p>
+                </div>
+                <div class="stat-card neumorphism">
+                    <div class="stat-number">50+</div>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-card neumorphism">
+                    <div class="stat-number">99.9%</div>
+                    <p>Uptime</p>
+                </div>
+                <div class="stat-card neumorphism">
+                    <div class="stat-number">24/7</div>
+                    <p>Support</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #6c4cf2; margin-bottom: 2rem; font-family: 'Inter', sans-serif;">Our Core Values</h3>
+            <div class="values-grid">
+                <div class="value-card glass-effect">
+                    <i data-lucide="target" class="value-icon"></i>
+                    <h4>Precision</h4>
+                    <p>We identify and neutralize threats with surgical precision</p>
+                </div>
+                <div class="value-card glass-effect">
+                    <i data-lucide="eye" class="value-icon"></i>
+                    <h4>Vigilance</h4>
+                    <p>24/7 monitoring to catch threats before they strike</p>
+                </div>
+                <div class="value-card glass-effect">
+                    <i data-lucide="users" class="value-icon"></i>
+                    <h4>Trust</h4>
+                    <p>Building lasting relationships through transparency</p>
+                </div>
+                <div class="value-card glass-effect">
+                    <i data-lucide="shield" class="value-icon"></i>
+                    <h4>Protection</h4>
+                    <p>Your security is our top priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card glass-effect">
+                    <i data-lucide="search" class="service-icon"></i>
+                    <h3>Threat Detection</h3>
+                    <p>Advanced AI-powered threat detection systems that identify and neutralize cyber threats in real-time.</p>
+                    <ul class="service-features">
+                        <li>Real-time monitoring</li>
+                        <li>AI-powered analysis</li>
+                        <li>Instant alerts</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <i data-lucide="shield" class="service-icon"></i>
+                    <h3>Incident Response</h3>
+                    <p>Rapid response teams ready to handle security incidents and minimize damage to your business.</p>
+                    <ul class="service-features">
+                        <li>24/7 response team</li>
+                        <li>Forensic analysis</li>
+                        <li>Recovery support</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <i data-lucide="eye" class="service-icon"></i>
+                    <h3>Security Audits</h3>
+                    <p>Comprehensive security assessments to identify vulnerabilities and strengthen your defenses.</p>
+                    <ul class="service-features">
+                        <li>Vulnerability scanning</li>
+                        <li>Penetration testing</li>
+                        <li>Compliance checks</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <i data-lucide="file-text" class="service-icon"></i>
+                    <h3>Security Consulting</h3>
+                    <p>Expert guidance on security strategy, policy development, and best practices implementation.</p>
+                    <ul class="service-features">
+                        <li>Strategy development</li>
+                        <li>Policy creation</li>
+                        <li>Training programs</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <i data-lucide="network" class="service-icon"></i>
+                    <h3>Network Security</h3>
+                    <p>Comprehensive network protection including firewall management and intrusion prevention.</p>
+                    <ul class="service-features">
+                        <li>Firewall management</li>
+                        <li>Intrusion prevention</li>
+                        <li>Network monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card glass-effect">
+                    <i data-lucide="briefcase" class="service-icon"></i>
+                    <h3>Managed Security</h3>
+                    <p>Complete outsourced security management allowing you to focus on your core business.</p>
+                    <ul class="service-features">
+                        <li>Full security management</li>
+                        <li>Regular reporting</li>
+                        <li>Proactive maintenance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contact" class="cta-button cyber-button">
+                    Get Started Today
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="color: #6c4cf2; margin-bottom: 1.5rem;">Get In Touch</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button cyber-button" style="width: 100%;">
+                            Send Message
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color: #6c4cf2; margin-bottom: 1.5rem;">Contact Information</h3>
+                    
+                    <div class="contact-item glass-effect">
+                        <i data-lucide="mail" class="contact-icon"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>surajshinde4726@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 7977107246</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <i data-lucide="map-pin" class="contact-icon"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Ghatkopar, Mumbai<br>Maharashtra, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <i data-lucide="clock" class="contact-icon"></i>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>24 hours guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #6c4cf2; margin-bottom: 2rem; font-family: 'Inter', sans-serif;">What We Offer</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="glass-effect" style="padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i data-lucide="shield" style="width: 40px; height: 40px; color: #6c4cf2; margin-bottom: 1rem;"></i>
+                        <h4>Comprehensive Protection</h4>
+                        <p>End-to-end security solutions for your entire digital infrastructure</p>
+                    </div>
+                    <div class="glass-effect" style="padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i data-lucide="eye" style="width: 40px; height: 40px; color: #6c4cf2; margin-bottom: 1rem;"></i>
+                        <h4>24/7 Monitoring</h4>
+                        <p>Round-the-clock surveillance to catch threats before they impact your business</p>
+                    </div>
+                    <div class="glass-effect" style="padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i data-lucide="file-text" style="width: 40px; height: 40px; color: #6c4cf2; margin-bottom: 1rem;"></i>
+                        <h4>Expert Consultation</h4>
+                        <p>Professional guidance to strengthen your security posture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo">CyberFort</h3>
+                    <p>Advanced cybersecurity solutions to protect your digital assets. Expert threat detection, incident response, and security consulting services.</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" class="glass-effect">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="#" class="glass-effect">
+                            <i data-lucide="github"></i>
+                        </a>
+                        <a href="#" class="glass-effect">
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Threat Detection</a></li>
+                        <li><a href="#services">Incident Response</a></li>
+                        <li><a href="#services">Security Audits</a></li>
+                        <li><a href="#services">Security Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>surajshinde4726@gmail.com</li>
+                        <li>+91 7977107246</li>
+                        <li>Ghatkopar, Mumbai</li>
+                        <li>Maharashtra, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CyberFort. All rights reserved. | Protecting your digital future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <div class="floating-button cyber-button" onclick="openThreatModal()">
+        <i data-lucide="alert-triangle" style="color: #0b0b1f;"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top glass-effect" onclick="scrollToTop()">
+        <i data-lucide="chevron-up" style="color: #6c4cf2;"></i>
+    </div>
+
+    <!-- Threat Report Modal -->
+    <div id="threatModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="color: #6c4cf2;">Report a Threat</h3>
+                <button class="modal-close" onclick="closeThreatModal()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-options">
+                <div class="modal-option glass-effect" onclick="reportViaEmail()">
+                    <i data-lucide="mail" style="color: #6c4cf2;"></i>
+                    <div>
+                        <h4>Report via Email</h4>
+                        <p>Send detailed threat report directly to our security team</p>
+                    </div>
+                </div>
+                <div class="modal-option glass-effect" onclick="reportViaForm()">
+                    <i data-lucide="message-circle" style="color: #6c4cf2;"></i>
+                    <div>
+                        <h4>Use Contact Form</h4>
+                        <p>Fill out our secure contact form with threat details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 2000);
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Typewriter effect
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typewriter effect
+        window.addEventListener('load', function() {
+            const heroTitle = document.getElementById('hero-title');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 100);
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Threat modal functions
+        function openThreatModal() {
+            document.getElementById('threatModal').style.display = 'block';
+        }
+
+        function closeThreatModal() {
+            document.getElementById('threatModal').style.display = 'none';
+        }
+
+        function reportViaEmail() {
+            const subject = encodeURIComponent('Threat Report - CyberFort');
+            const body = encodeURIComponent('Please provide detailed information about the threat you want to report:\n\n- Type of threat:\n- Date and time:\n- Description:\n- Impact:\n- Contact information:');
+            window.open(`mailto:info@cyberfort.com?subject=${subject}&body=${body}`);
+            closeThreatModal();
+        }
+
+        function reportViaForm() {
+            closeThreatModal();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('threatModal');
+            if (e.target === modal) {
+                closeThreatModal();
+            }
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section, .service-card, .value-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 
